@@ -1,14 +1,22 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
-	int i, n, a,sum=0;
-	char name;
-	scanf("%d", &n);
-	for (i = 0; i < n; i++)
+	int i, a;
+	char arr[100] = { 0 }, word[27] = { -1 };
+	scanf("%s", arr);
+	for (i = 0; i < 26; i++)
 	{
-		a = getchar();
-		sum += a;
+		word[i] = -1;
 	}
-	printf("%d", sum);
+	for (i = 0; i < strlen(arr); i++)
+	{
+		a = arr[i] - 96;
+		if(word[a-1] == -1) word[a - 1] = i;
+	}
+	for (i = 0; i < 26; i++)
+	{
+		printf("%d ",word[i]);
+	}
 }
